@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Form</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
+  <style type="text/css">
+  
+  body {
+    background-color: #eee;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+    margin-left: 5em;
+    margin-bottom: 1em;
+}
+
+  </style>
+   <script type="text/javascript">
+   			$(document).ready(function(){
+   					$("#register").click(function(){
+   						alert("@)@)@)");
+   						$.ajax({type : "POST",
+   	                        url : "/register",
+   	                        data : $("#registrationForm").serialize(),
+   	                        success : function(response) {
+   	                        	console.log(response);
+   	                        	if(response.message=="success") {
+   	                        	      	$("#errorMessage").html("User has been registered  successfully and you would get an email shortly!");
+   	                        	      	$("input[type='text'][id='name']").val("");
+   	                        	 		$("input[type='email'][id='email']").val("");
+   	                        	 		$("input[type='text'][id='mobile']").val("");
+   	                        	}
+   	                        }
+   						});
+   					});
+   			});
+   </script>
+</head>
+<body>
+<div style="height: 10px;background-color: #4fcc0f24;">
+
+</div>
+<div class="container">
+            <form class="form-horizontal" role="form" id="registrationForm">
+                <h2>Registration Form</h2>
+                
+                <span id="errorMessage" style="color:red;font-size: 16px;"></span>
+                <br/>     <br/>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name"  name="name"  placeholder="Full Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email"  name="email" placeholder="Email" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-sm-3 control-label">Mobile</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="mobile" placeholder="Mobile" class="form-control" name="mobile">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="birthDate" class="form-control" name="dob">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age" class="col-sm-3 control-label">Age</label>
+                    <div class="col-sm-9">
+                        <select id="age" class="form-control" name="age">
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                                 <option>29</option>
+                                 <option>30</option>
+                                 <option>31</option>
+                                 <option>32</option>
+                        </select>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="femaleRadio" name="gender" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="maleRadio" name="gender" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+               
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">I accept <a href="#">terms</a>
+                            </label>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="button" class="btn btn-primary btn-block" id="register">Register</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+
+</body>
+</html>
